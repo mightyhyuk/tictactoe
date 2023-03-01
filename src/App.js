@@ -89,6 +89,20 @@ export default function Game() {
     setXIsNext(!xIsNext);
   }
 
+  const moves = history.map((element, index) => {
+    let description = "";
+    if (index > 0) {
+      description = "Go to move #" + index;
+    } else {
+      description = "Go to game start";
+    }
+    return (
+      <li>
+        <button>{description}</button>
+      </li>
+    );
+  });
+
   return (
     <div className="game">
       <div className="game-board">
@@ -99,7 +113,7 @@ export default function Game() {
         />
       </div>
       <div className="game-info">
-        <ol>{/*TODO*/}</ol>
+        <ol>{moves}</ol>
       </div>
     </div>
   );
